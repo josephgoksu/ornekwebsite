@@ -1,0 +1,22 @@
+name: Deployment
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          version: 10.x
+      - name: Install Dependencies and Build
+        env:
+          FIREBASE_ENV: ${{ secrets.FIREBASE_ENV }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          npm install
+          npm run build
+          npm run deploy
