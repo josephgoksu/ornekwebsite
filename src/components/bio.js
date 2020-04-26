@@ -58,6 +58,7 @@ const Bio = () => {
       />
       <p>
         Hello it's me<strong>{author.name}</strong>
+        <p>ikinci commit</p>
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>@y7usuf</a>
       </p>
